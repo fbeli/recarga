@@ -7,20 +7,30 @@ http://www.springframework.org/schema/security/spring-security-3.1.xsd">
 
 	<bean id="carregarProdutos" class="br.com.becb.middlewarerecarga.quartz.ExecutorTarefa"/>
 
-	<bean id="detalheTarefa" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+	<bean id="carregarProdutosBean" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
 		<property name="targetObject" ref="carregarProdutos"/>
-		<property name="targetMethod" value="executeJob"/>
+		<property name="targetMethod" value="ajustarProdutos"/>
+	</bean>
+	<bean id="manterConexaoBean" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="carregarProdutos"/>
+		<property name="targetMethod" value="manterConexao"/>
 	</bean>
 	
 	<bean id="cronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
-		<property name="jobDetail" ref="detalheTarefa" />
+		<property name="jobDetail" ref="carregarProdutosBean" />
 		<property name="cronExpression" value="0 20 05 * * ?" />
+	</bean>
+	
+	<bean id="simpleTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+		<property name="jobDetail" ref="manterConexaoBean" />
+		<property name="startDelay" value="10000" />
+		<property name="repeatInterval" value="1800000" />
 	</bean>
 	
 	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
 		<property name="triggers">
 			<list>
-				<!-- ref bean="simpleTrigger" /-->
+				<ref bean="simpleTrigger"/>
 				<ref bean="cronTrigger" />
 			</list>
 		</property>

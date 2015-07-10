@@ -28,7 +28,7 @@
           <div class="row-fluid">
             <div class="span4">
               <h2>Incluir usuário</h2>
-           
+           <sec:authorize access="hasRole('ROLE_ADMIN') or hasRole('ROLE_SUPERVISOR')">
 
                   <form id="formNovoUser"
                     action=" <%=request.getContextPath()%>/admin/cadastrarUser">
@@ -62,7 +62,7 @@
                       
                     
                   </form>
-             
+             </sec:authorize>
          </div><!--/span-->
             <div class="span4">
               <h3>Verifica Transação Online</h3>
