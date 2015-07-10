@@ -1,0 +1,156 @@
+/* CSS Document */
+<!--	
+	html,body 
+	{
+		font-family: Tahoma;
+		font-size: 11px;
+		color:#1E4F9C;
+		text-decoration:none;	
+	}
+	body 
+	{	
+		margin-left: 0px;
+		margin-top: 0px;
+		margin-right: 0px;
+		margin-bottom: 0px;
+		background-image: url(/img/back.png);
+		background-attachment: fixed;
+		width:100%;
+		background-position: left top;
+	}
+	.titulo_miolo
+	{
+		height:65px; 
+		background-color:#1D6E9B; 
+		font-family:'Oxygen', sans-serif; 
+		font-size:36px; 
+		color:#FFFFFF;
+	}
+	.div_logo
+	{
+		 width:17%; 
+		 height:100px;
+		 border-radius: 20px; 
+		 border: 6px solid #B3DCEE; 
+		 opacity: 0.4; 
+		 cursor:pointer;
+		 float:left;
+		 transition: opacity .25s ease-in-out;
+  		 -moz-transition: opacity .25s ease-in-out;
+		 -webkit-transition: opacity .25s ease-in-out;
+	}
+	.div_logo:hover
+	{
+		opacity: 1; 
+	}
+	.div_bnt
+	{
+		padding:20px;
+		width:140px;
+		border-radius: 10px; 
+	 	border: 2px solid #B3DCEE; 
+		cursor:pointer;
+		font-family:'Oxygen', sans-serif; 
+		font-size:20px;
+		line-height:15px;
+		font-weight:bold;
+		box-shadow: 5px 5px 5px 1px #B3DCEE;
+		opacity: 0.6;
+		background-color:#FFFFFF;
+	}
+	.div_bnt:hover
+	{
+		opacity: 1; 
+	}
+	.div_valor
+	{
+		width:150;
+		height:50;
+		border-radius: 10px; 
+	 	border: 5px solid #B3DCEE; 
+		cursor:pointer;
+		font-family:'Oxygen', sans-serif; 
+		font-size:25px;
+		line-height:18px;
+		font-weight:bold;
+		opacity: 0.6; 
+	}
+	.div_valor:hover
+	{
+		opacity: 1; 
+	}
+	.textField
+	{
+		border: 2px solid #4EADDA; 
+		font-size:58px;
+		width:80px; 
+		box-shadow:inset 0 0 10px 1px #666666; 
+		color:#1D6E9B; 
+		font-family:Arial, Helvetica, sans-serif; 
+		text-align:center;
+		height:70px;
+	}
+	.textField2
+	{
+		border: 2px solid #4EADDA; 
+		font-size:16px;
+		color:#1D6E9B; 
+		font-family:Arial, Helvetica, sans-serif; 
+		text-align:center;
+		margin-bottom:10px;
+	}
+	.confirma_tel
+	{
+		font-family:'Oxygen', sans-serif; 
+		font-size:60px;
+		color:#1D6E9B;	
+	}
+	.confirma_valor
+	{
+		font-family:'Oxygen', sans-serif; 
+		font-size:40px;
+		color:#1D6E9B;	
+		border-radius: 10px; 
+	 	border: 5px solid #B3DCEE; 
+	}
+	.button
+	{
+		background-image: url(/img/bntApaga.png);
+		background-repeat:no-repeat;
+		background-position:center;
+		background-color:#FFFFFF;
+		border:none;
+		cursor:pointer;
+		width:80px; 
+		color:#1D6E9B; 
+		text-align:center;
+		height:70px;
+		font-family:Arial, Helvetica, sans-serif; 
+		font-size:58px;
+	}
+	.divBackPopup 
+	{
+		filter:alpha(opacity=70);
+		-moz-opacity:0.7;
+		-khtml-opacity: 0.7;
+		opacity: 0.5;
+		position:fixed;
+		width:100%;
+		height:100%;
+		background-color:#000000;
+		left:0;
+		top:0; 
+	}
+	.divPopupBody 
+	{
+		border: solid 3px #1E4F9C;
+		position:fixed;
+		background-color:#FFFFFF;
+		left: 33%;
+		top: 33%;
+		z-index: 100;
+		padding:20px;
+		width: 33%;
+	}
+
+-->

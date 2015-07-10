@@ -1,0 +1,47 @@
+MLog clients using log4j logging.
+Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+HHH000412: Hibernate Core {4.1.7.Final}
+HHH000206: hibernate.properties not found
+HHH000021: Bytecode provider name : javassist
+Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> z8kflt99xbcgal414y1|42463763, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> null, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> z8kflt99xbcgal414y1|42463763, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://localhost:3306/recarga, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {hibernate.c3p0.testConnectionOnCheckout=true, c3p0.acquire_rentry_attemps=5, c3p0.min_size=10, hc3p0.maxPoolSize=100, hibernate.c3p0.idle_test_period=100, user=******, hc3p0.timeout=30000, c3p0.acquire_increment=5, c3p0.preferredTestQuery=SELECT 1;, password=******, c3p0.max_statements=50}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+HHH000399: Using default transaction strategy (direct JDBC transactions)
+HHH000397: Using ASTQueryTranslatorFactory
+HHH000228: Running hbm2ddl schema update
+HHH000102: Fetching database metadata
+HHH000396: Updating schema
+HHH000261: Table found: recarga.erro
+HHH000037: Columns: [codigo, data, mensagem, id]
+HHH000108: Foreign keys: []
+HHH000126: Indexes: [id, primary]
+HHH000261: Table found: recarga.dddproduto
+HHH000037: Columns: [dddproduto, id]
+HHH000108: Foreign keys: []
+HHH000126: Indexes: [id, primary, dddproduto_unique]
+HHH000261: Table found: recarga.operadora
+HHH000037: Columns: [ativo, nomeoperadora, ultimaatualizacaooperadora, nomerecargaoperadora, id, codigooperadora]
+HHH000108: Foreign keys: []
+HHH000126: Indexes: [id, primary]
+HHH000261: Table found: recarga.operadora_produto
+HHH000037: Columns: [produtos_id, operadora_id]
+HHH000108: Foreign keys: [fk12c07f07589e269c, fk12c07f07a5ff829d]
+HHH000126: Indexes: [fk12c07f07589e269c, fk12c07f07a5ff829d]
+HHH000261: Table found: recarga.produto
+HHH000037: Columns: [codigoproduto, msghabilitacaoproduto, ativo, nomeproduto, valormaximoproduto, ultima_atualizacaoproduto, validadeproduto, valorincrementoproduto, operadoraid, precovariavelproduto, dataupdate, pin, modelorecarga, valorminimoproduto, precocompraproduto, id, precovendaproduto]
+HHH000108: Foreign keys: [fked8dcef9e71bca78]
+HHH000126: Indexes: [fked8dcef9e71bca78, id, primary]
+HHH000261: Table found: recarga.produto_dddproduto
+HHH000037: Columns: [dddproduto_id, produto_id]
+HHH000108: Foreign keys: [fkf4351b7bc81c39d7, fk90fc839bfe26d7dd, fk90fc839bc81c39d7, fkf4351b7bfe26d7dd]
+HHH000126: Indexes: [fkf4351b7bc81c39d7, fk90fc839bfe26d7dd, fk90fc839bc81c39d7, fkf4351b7bfe26d7dd]
+HHH000261: Table found: recarga.produto_dddproduto
+HHH000037: Columns: [dddproduto_id, produto_id]
+HHH000108: Foreign keys: [fkf4351b7bc81c39d7, fk90fc839bfe26d7dd, fk90fc839bc81c39d7, fkf4351b7bfe26d7dd]
+HHH000126: Indexes: [fkf4351b7bc81c39d7, fk90fc839bfe26d7dd, fk90fc839bc81c39d7, fkf4351b7bfe26d7dd]
+HHH000261: Table found: recarga.recarga
+HHH000037: Columns: [compra, lote, mensagem, produto_id, possuiboleto, preco, statusrecarga, nsu, usuariolocal, idprodutoajustado, pin, id, datarv, datadeconfirmacao, codigo, reenvio, statusrecargaserver, ddd, idterminal, valor, vencimento, pago, uf_terminal, fone, face, datadesolicitacao, codonline, serie, pagamento]
+HHH000108: Foreign keys: [fk4080c15bfe26d7dd]
+HHH000126: Indexes: [id, fk4080c15bfe26d7dd, primary]
+HHH000232: Schema update complete

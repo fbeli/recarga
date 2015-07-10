@@ -1,0 +1,41 @@
+
+
+ Online - status CellCard: CONFIRMADO- status Local: EFETUADO - Operadora: OI- código: 514240
+
+ Online - status CellCard: CONFIRMADO- status Local: EFETUADO - Operadora: ALGAR (FIXA)- código: 514241
+
+ Online - status CellCard: CONFIRMADO- status Local: EFETUADO - Operadora: TIM- código: 514242
+
+ Online - status CellCard: CONFIRMADO- status Local: EFETUADO - Operadora: VIVO- código: 514243
+
+ Online - status CellCard: CONFIRMADO- status Local: EFETUADO - Operadora: OI- código: 514244
+
+ Online - status CellCard: CONFIRMADO- status Local: CANCELADO - Operadora: ALGAR (CELULAR)- código: 514245
+
+ Online - status CellCard: CONFIRMADO- status Local: CANCELADO - Operadora: TIM- código: 514246
+
+ Online - status CellCard: CONFIRMADO- status Local: CANCELADO - Operadora: CLARO- código: 514247
+
+ Online - status CellCard: CONFIRMADO- status Local: CANCELADO - Operadora: CLARO- código: 514248
+
+ Online - status CellCard: CONFIRMADO- status Local: CANCELADO - Operadora: TIM- código: 514249
+
+ PIN - status CellCard: CONFIRMADO- status Local: EFETUADO - Operadora: CLARO FIXO- código: 514250
+
+ PIN - status CellCard: CONFIRMADO- status Local: EFETUADO - Operadora: CLARO FIXO- código: 514251
+
+ PIN - status CellCard: CONFIRMADO- status Local: EFETUADO - Operadora: CLARO FIXO- código: 514252
+
+ PIN - status CellCard: CONFIRMADO- status Local: EFETUADO - Operadora: CLARO FIXO- código: 514253
+
+ PIN - status CellCard: CONFIRMADO- status Local: EFETUADO - Operadora: CLARO FIXO- código: 514254
+
+ PIN - status CellCard: CONFIRMADO- status Local: EFETUADO - Operadora: CLARO FIXO- código: 514255
+
+ PIN - status CellCard: CONFIRMADO- status Local: EFETUADO - Operadora: CLARO FIXO- código: 514256
+
+ PIN - status CellCard: CONFIRMADO- status Local: EFETUADO - Operadora: CLARO FIXO- código: 514257
+
+ PIN - status CellCard: CONFIRMADO- status Local: EFETUADO - Operadora: CLARO FIXO- código: 514258
+
+ PIN - status CellCard: CONFIRMADO- status Local: EFETUADO - Operadora: CLARO FIXO- código: 514259

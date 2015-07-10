@@ -1,0 +1,19 @@
+
+
+
+
+	<div align="center" style="width:100%; height:100%;">
+		<!-- topo -->
+		<div align="right" style="width:100%; height:40px; padding-top:8px; background-image: url(<%=request.getContextPath()%>//recursos//img//back_topo.png);">
+			<img src="<%=request.getContextPath()%>/recursos/img/closeWindow.png" onClick="CloseThis();" style="cursor:pointer;"/>
+		</div> 
+		<!-- topo -->
+		
+		<div align="center" style="height:5%;"/></div>
+		
+		<!-- Miolo -->
+		
+		<div align="center" id="frame0"> 
+			
+			<div align="center" style="height:7%;"/></div>
+		

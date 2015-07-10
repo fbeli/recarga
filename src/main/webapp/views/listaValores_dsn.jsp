@@ -1,0 +1,64 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+ <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+			
+			
+				
+			<div align="center" style="height:25%;" id="frameValores">
+				
+				<div align="center" style="height:20%;"></div>
+				
+				<div align="center">
+					<c:set var="entrar" value="0" />
+					<table align="center" cellspacing="10" id="frameValoresTable">
+					
+					<c:forEach items="${produtos}" var="produto">
+					<c:set var="entrar" value="${entrar+1 }" />
+					<c:choose>
+						<c:when test="${entrar mod 4 == 0}">
+							
+						
+							<tr>
+								<td>
+									<div align='center' class='div_valor' onClick="fixaValor(${produto.valorMaximoProduto});"><br>
+										<fmt:formatNumber value="${produto.valorMaximoProduto}" type="currency"/>
+									</div>
+								</td>
+						</c:when>
+						<c:when test="${entrar mod 4 == 3}">
+							
+								<td><div align='center' class='div_valor' onClick="fixaValor(${produto.valorMaximoProduto});"><br><fmt:formatNumber value="${produto.valorMaximoProduto}" type="currency"/></div></td>
+								</tr>
+						</c:when>
+						<c:otherwise>
+							<td><div align='center' class='div_valor' onClick="fixaValor(${produto.valorMaximoProduto});"><br><fmt:formatNumber value="${produto.valorMaximoProduto}" type="currency"/></div></td>
+						</c:otherwise>
+					</c:choose>
+							
+					</c:forEach>
+					</tr>
+					</table>
+			
+				</div>
+
+			</div>
+			
+			<div align="center" style="height:25%; display:none;" id="frameConfirma">
+			<form action="solicitarRecarga" method="post" id="formulario">	
+				<div align="center" style="height:10%;"></div>
+				
+				<span id="confirma_fone" class="confirma_tel"><strong>Telefone: ( ${ddd } ) ${fone }</strong></span><br>
+				<span id="confirma_operadora" class="confirma_tel"><strong>Operadora: ${operadora }</strong></span><br>
+				<span id="confirma_valor" class="confirma_tel"><strong id="confirma_valor_strong">Valor: ${valor }</strong></span><br><br><br>
+				
+					
+				<input name="Confirmar" type="submit" class="div_bnt" value="Confirmar">
+	
+				
+				<input type="hidden" id="ddd" name="ddd" value="${ddd }">
+				<input type="hidden" id="operadora" name="operadora" value="${operadora }">
+				<input type="hidden" name="fone" id="fone" value="${fone }">
+				<input type="hidden" name="valor" value="0" id="valor">
+				<input type="hidden" name="codProduto" id="codProduto">
+				
+			</form>
+			</div>

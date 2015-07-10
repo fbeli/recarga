@@ -1,0 +1,17 @@
+package br.com.becb.middlewarerecarga.servicos.threads;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class ThreadManterConexao extends Thread {
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		super.run();
+		
+		System.out.println("Teste de conexão");
+		
+	}
+
+}

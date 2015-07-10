@@ -1,0 +1,99 @@
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+	
+	<definition name="main" template="/views/templates/main.jsp">
+		<put-attribute name="titulo" value="Recarga online"/>
+		<put-attribute name="cabecalho" value="/views/templates/cabecalhoBasico_bootStrap.jsp"/>
+		<put-attribute name="rodape" value="/views/templates/rodapeBasico.jsp"/>
+	</definition>
+	
+	<definition name="main_dsn" template="/views/templates_dsn/main.jsp">
+		<put-attribute name="titulo" value="Recarga online"/>
+		<put-attribute name="cabecalho" value="/views/templates_dsn/cabecalho.jsp"/>
+		<put-attribute name="corposuperior" value="/views/templates_dsn/corpoOperadoras.jsp"/>
+		<put-attribute name="rodape" value="/views/templates_dsn/rodape.jsp"/>
+	</definition>
+	<definition name="clean_dsn" template="/views/templates_dsn/main.jsp">
+		<put-attribute name="titulo" value="Recarga online"/>
+		<put-attribute name="cabecalho" value="/views/templates_dsn/cabecalho.jsp"/>
+		<put-attribute name="corposuperior" value=""/>
+		<put-attribute name="rodape" value="/views/templates_dsn/rodape.jsp"/>
+	</definition>
+	
+	<definition name="adm" template="/views/templates/mainAdm.jsp">
+		<put-attribute name="titulo" value="Recarga online"/>
+		<put-attribute name="cabecalho" value="/views/templates/cabecalhoBasico.jsp"/>
+		<put-attribute name="rodape" value="/views/templates/rodapeBasico.jsp"/>
+	</definition>
+	
+    <definition name="index_old"  extends="main" >
+    	<put-attribute name="conteudo" value="/views/recargahome.jsp"/>
+    </definition>
+    
+    <definition name="index"  extends="main_dsn" >
+    	<put-attribute name="conteudo" value="/views/recargahome_dsn.jsp"/>
+    </definition>
+    
+    
+    <definition name="valores_old"  extends="main" >
+    	<put-attribute name="conteudo" value="/views/listaValores.jsp"/>
+    </definition>
+    <definition name="valores"  extends="main_dsn" >
+    	<put-attribute name="conteudo" value="/views/listaValores_dsn.jsp"/>
+    </definition>
+    
+     <definition name="confirmacaoDeRecarga"  extends="clean_dsn" >
+    	<put-attribute name="conteudo" value="/views/confirmacaoDeRecarga.jsp"/>
+    </definition>
+      <definition name="confirmacaoDeRecarga_old"  extends="main" >
+    	<put-attribute name="conteudo" value="/views/confirmacaoDeRecarga.jsp"/>
+    </definition>
+     <definition name="confirmacaoDeRecargaPIN"  extends="main" >
+    	<put-attribute name="conteudo" value="/views/confirmacaoDeRecargaPIN.jsp"/>
+    </definition>
+   
+     <definition name="finalizarRecarga"  extends="main" >
+    	<put-attribute name="conteudo" value="/views/solicitarSenha.jsp"/>
+    </definition>
+     <definition name="erroRecarga_old"  extends="main" >
+    	<put-attribute name="conteudo" value="/views/erroRecarga.jsp"/>
+    </definition>
+    <definition name="erroRecarga"  extends="main_dsn" >
+    	<put-attribute name="conteudo" value="/views/erroRecarga.jsp"/>
+    </definition>
+    
+      <definition name="admin"  extends="adm" >
+    	<put-attribute name="conteudo" value="/views/admin.jsp"/>
+    </definition>
+     <definition name="cadastroUser"  extends="adm" >
+    	<put-attribute name="conteudo" value="/views/admin.jsp"/>
+    </definition>    
+     <definition name="tipoPagamento"  extends="main_dsn" >
+    	<put-attribute name="conteudo" value="/views/tipoPagamento.jsp"/>
+    </definition>
+     <definition name="buscaVendedor"  extends="main" >
+    	<put-attribute name="conteudo" value="/views/buscaVendedor.jsp"/>
+    </definition>
+    <definition name="listaTransacoes"  extends="adm" >
+    	<put-attribute name="conteudo" value="/views/transacoes.jsp"/>
+    </definition>
+    <definition name="listaTransacoes2"  extends="adm" >
+    	<put-attribute name="conteudo" value="/views/transacoes2.jsp"/>
+    </definition>
+    <definition name="produtos"  extends="main" >
+    	<put-attribute name="conteudo" value="/views/produtos.jsp"/>
+    </definition>
+     <definition name="resultadoAtualizacao"  extends="adm" >
+    	<put-attribute name="conteudo" value="/views/resultado.jsp"/>
+    </definition>
+      <definition name="entrar"  extends="clean_dsn" >
+    	<put-attribute name="conteudo" value="/views/login.jsp"/>
+    </definition>
+     <definition name="erroRecarga"  extends="clean_dsn" >
+    	<put-attribute name="conteudo" value="/views/login.jsp"/>
+    </definition>
+
+
+</tiles-definitions>
