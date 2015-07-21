@@ -11,24 +11,21 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 
 
-	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
- 
- 		<property name="location" value="file:${CATALINA_BASE}\conf\database.properties" />
-		
-	</bean>
-
 	<bean id="dataSourceJDBC" autowire-candidate="false" 
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 		
+		<!--property name="username" value="falemais" />			
+		<property name="password" value="falemysql14" /> 
+		<property name="url" value="jdbc:mysql://mysql.falemais.kinghost.net:3306/falemais" /-->
 		
-		<property name="username" value="${jdbc.username}"/>
-		<property name="password" value="${jdbc.password}"/> 
-		<property name="url" value="${jdbc.url}"/>
+		<property name="username" value="root"/>
+		<property name="password" value="eumesmo"/> 
+		<property name="url" value="jdbc:mysql://localhost:3306/recarga"/>
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"/> 
 	
 	</bean>
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
 		
-		<property name="jdbcUrl" value="${jdbc.url}" />
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/recarga" />
 		
 		
 		<property name="properties">
@@ -43,8 +40,8 @@
 				<prop key="c3p0.preferredTestQuery">SELECT 1;</prop>
 				<prop key="hibernate.c3p0.testConnectionOnCheckout">true</prop>
 				<prop key="hibernate.connection.release_mode">after_transaction </prop>
-				<prop key="user">${jdbc.username}</prop>
-				<prop key="password">${jdbc.password}</prop>
+				<prop key="user">root</prop>
+				<prop key="password">eumesmo</prop>
 			</props>
 		</property>
 	</bean>

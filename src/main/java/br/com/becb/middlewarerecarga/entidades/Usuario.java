@@ -107,10 +107,7 @@ public class Usuario implements java.io.Serializable {
 		return login;
 	}
 	
-	
-	
-
-	public void setLogin(String login) {
+		public void setLogin(String login) {
 		this.login = login;
 	}
 
@@ -151,6 +148,7 @@ public class Usuario implements java.io.Serializable {
 	public List<PermissaoUsuario> getPermissaoUsuarios() {
 		return permissaoUsuarios;
 	}
+
 
 	public void setPermissaoUsuarios(List<PermissaoUsuario> permissaoUsuarios) {
 		this.permissaoUsuarios = permissaoUsuarios;

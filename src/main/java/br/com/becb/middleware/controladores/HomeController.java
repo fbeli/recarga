@@ -1,12 +1,14 @@
 package br.com.becb.middleware.controladores;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -52,12 +54,33 @@ public class HomeController {
 
 	@RequestMapping("/admin")
 	
-	public ModelAndView admin(Map<String, Object> model, HttpSession sessao) throws ErroException {
+	public ModelAndView admin(Map<String, Object> model, HttpSession sessao) {
 
 		ModelAndView resultado = new ModelAndView();
 
+		Usuario usuario = ((Usuario) sessao.getAttribute("usuario"));
+		Set <Usuario> usuarios=null;
+		Set<Usuario> usuariosAtivos = null;
+		
+		if(userService.verificaRole("ROLE_SUPERVISOR", sessao)){
+			try {
+				usuariosAtivos = new HashSet<>( userService.getUsuariosAtivos() );		
+				usuarios = new HashSet<>( userService.getUsuarios() );
+			} catch (ErroException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}else{
+			usuarios = new HashSet<Usuario>();
+			usuarios.add(usuario);
+			
+		}
+		
+		
 		resultado.addObject("data", Suporte.conveterData(new Date(), "dd/MM/yyyy hh:mm:ss"));
-		resultado.addObject("usuarios", userService.getUsuarios());
+		resultado.addObject("usuarios", usuarios);
+		resultado.addObject("usuariosAtivos", usuariosAtivos);
+		
 		resultado.setViewName("admin");
 
 		

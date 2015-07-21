@@ -3,6 +3,8 @@ package br.com.becb.middleware.controladores;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,9 +13,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import br.com.becb.middlewarerecarga.entidades.Recarga;
 import br.com.becb.middlewarerecarga.entidades.Transacoes;
+import br.com.becb.middlewarerecarga.entidades.Usuario;
 import br.com.becb.middlewarerecarga.exceptions.ErroException;
 import br.com.becb.middlewarerecarga.servicos.RecarregarService;
 import br.com.becb.middlewarerecarga.servicos.TransacaoService;
+import br.com.becb.middlewarerecarga.servicos.UserService;
 import br.com.becb.middlewarerecarga.suporte.PegaProperties;
 import br.com.becb.middlewarerecarga.suporte.Suporte;
 
@@ -24,7 +28,8 @@ public class TransacaoController {
 	RecarregarService recarregarService;
 	@Autowired
 	TransacaoService transacaoService;
-
+	
+	
 	@RequestMapping(value = "admin/verificaTransacao")
 	public ModelAndView verificarTransacao(
 			@RequestParam(required = false, value = "ddd") String ddd,
@@ -124,10 +129,13 @@ public class TransacaoController {
 			@RequestParam(required = false, value = "nome") String nome,
 			@RequestParam(required = false, value = "dataFim") String dataFim,
 			@RequestParam(required = false, value = "dataInicio") String dataInicio,
-			@RequestParam(required = false, value = "hoje") boolean hoje) throws ErroException {
+			@RequestParam(required = false, value = "hoje") boolean hoje,
+			HttpSession sessao) throws ErroException {
 
 		ModelAndView resultado = new ModelAndView();
 
+
+		
 		Transacoes transacoes = null;
 		if(hoje)
 			dataInicio = dataFim = Suporte.conveterData(new Date(), "dd/MM/yyyy");

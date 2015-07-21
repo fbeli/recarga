@@ -25,11 +25,12 @@
           </div>
           
           <div class="span9" data-original-title="">${mensagem}</div>
+          <sec:authorize access="hasRole('ROLE_ADMIN')">
+          
           <div class="row-fluid">
             <div class="span4">
               <h2>Incluir usuário</h2>
-           <sec:authorize access="hasRole('ROLE_ADMIN') or hasRole('ROLE_SUPERVISOR')">
-
+           
                   <form id="formNovoUser"
                     action=" <%=request.getContextPath()%>/admin/cadastrarUser">
                   
@@ -57,13 +58,63 @@
                    <br>
                    <input type="submit" value="Confirmar">
                       
-                        <!--button id="btLogin">Confirmar</button>
-                          <p><a   id="btLogin" class="btn" onclick="" >Confirmar</a></p-->
-                      
                     
                   </form>
-             </sec:authorize>
-         </div><!--/span-->
+             </div><!--/span-->
+			<div class="span4">
+              <h3>Alterar senha</h3>
+           	
+           		
+	            <form id="formAlterarSenha"
+	            action=" <%=request.getContextPath()%>/admin/alterarSenha">
+	           
+	              <label>Nome:</label>
+	              <select name="id">
+	              <option value="">Todos</option>
+	              <c:forEach items="${usuarios}" var="usuario">
+	                  <option value="${usuario.id}">${usuario.nome} - ${usuario.login }</option>
+	              </c:forEach>
+	              </select><br>
+	                  <label>Senha:</label>
+                      <input type="text" name="senha" id="alt_senha" />
+                  
+	      <br>
+	                  <label>Confirmar senha Senha:</label>
+                      <input type="text" id="alt_confSenha" />
+                  
+	      
+              <br><input type="submit" value="buscar"  id="bt_altLogin" >
+                  
+	           </form> 
+	        </div>
+            
+            <div class="span4">
+              <h3>Cancelar Usuario</h3>
+              
+               		
+	            <form id="formCancelarUser"
+	            action=" <%=request.getContextPath()%>/admin/cancelarUser">
+	           
+	              <label>Nome:</label>
+	              <!-- td><input type="text" name="nome" id="vt_ddd" /></td-->
+	              <select name="nome">
+	              <option value="">Todos</option>
+	              <c:forEach items="${usuariosAtivos}" var="usuario">
+	                  <option value="${usuario.id}">${usuario.nome} - ${usuario.login }</option>
+	              </c:forEach>
+	              </select></td>
+	      
+	      
+          	    <br><input type="submit" value="buscar">
+                  
+	           </form> 
+	      
+              
+              
+            </div>
+          </div><!--/row-->
+          </sec:authorize>
+           <div class="row-fluid">
             <div class="span4">
               <h3>Verifica Transação Online</h3>
             
@@ -76,8 +127,7 @@
                     <input type="text" name="fone" id="vt_fone" />
                     <br>
                       <input type="submit" value="buscar">
-                       <!--p><a   id="btLogin" class="btn" >Confirmar</a></p-->
-                 
+                  
                 </form>
                
 
@@ -93,7 +143,8 @@
            
           </form>
             </div><!--/span-->
-          </div><!--/row-->
+
+            </div>
           <div class="row-fluid">
             <div class="span4">
               <h2>Listar Produtos</h2>
@@ -102,7 +153,7 @@
 		            action=" <%=request.getContextPath()%>/admin/buscarProdutos">
 		           
 		              <label>DDD:</label>(deixe em branco para buscar todos)
-		              <input type="text" name="ddd" id="ddd" />
+		             <input type="text" name="ddd" id="ddd" />
 		              <br><input type="submit" value="buscar"></td>
 		          
 		          </form>
@@ -119,7 +170,7 @@
               <select name="nome">
               <option value="">Todos</option>
               <c:forEach items="${usuarios}" var="usuario">
-                  <option value="${usuario.nome}">${usuario.nome}</option>
+                  <option value="${usuario.nome}">${usuario.nome} - ${usuario.login }</option>
               </c:forEach>
               </select></td>
               
@@ -161,6 +212,18 @@ $("#btLogin").click( function(){
 	}
 		
 }
+
+$("#bt_altLogin").click( function(){
+	if($("#alt_Senha").val() == $("#alt_confSenha").val()){
+		$("#formAlterarSenha").submit();
+		
+	}else{
+		$("#tdMsg").html("Senhas Não conferem, favor, colocar senhas iguais")
+	}
+		
+}
+
+
 
 </script>
 

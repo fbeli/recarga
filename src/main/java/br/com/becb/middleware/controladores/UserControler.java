@@ -20,7 +20,6 @@ public class UserControler {
 	private UserService userService;
 
 	public UserControler() {
-		// TODO Auto-generated constructor stub
 	}
 
 	@RequestMapping(value = "/admin/cadastrarUser")
@@ -39,7 +38,7 @@ public class UserControler {
 				if (userService.verificaRole("ROLE_SUPERVISOR", sessao)
 						&& "ROLE_ADMIN".equals(role)) {
 					resultado.addObject("mensagem",
-							"Voc� n�o possui permiss�o paracriar novos usu�rios ADMINISTRADORES");
+							"Você não possui permiss�o paracriar novos usu�rios ADMINISTRADORES");
 				}else{
 				Usuario user = userService.novoUsuario(username, password, nome,
 						role);
@@ -66,5 +65,48 @@ public class UserControler {
 
 		return resultado;
 	}
+	
+	
 
+	@RequestMapping(value = "/admin/cancelarUser")
+	public ModelAndView cancelarUsuario(
+			@RequestParam(required = false, value = "nome") String nome,
+			HttpSession sessao) throws ErroException, Exception {
+
+		ModelAndView resultado = new ModelAndView();
+
+		if(userService.bloquearUsuario(Long.parseLong(nome))){
+			
+			resultado.addObject("mensagem", "usuário id '"+nome+"' bloqueado");
+		
+		}else
+			resultado.addObject("mensagem", "usuário id '"+nome+"' não foi bloqueado");
+			
+		resultado.setViewName("admin");
+		
+		return resultado;
+		
+	}
+	
+	
+
+	@RequestMapping(value = "/admin/alterarSenha")
+	public ModelAndView alterarSenha(	@RequestParam(required = false, value = "id") String id,
+			@RequestParam(required = false, value = "senha") String senha,
+			HttpSession sessao) throws ErroException, Exception {
+
+		ModelAndView resultado = new ModelAndView();
+
+		Usuario user = userService.getUsuario(Long.parseLong(id));
+		user.setSenha(senha);
+		userService.atualizaUser(user);
+		resultado.addObject("mensagem", "usuário '"+user.getNome()+"' com senha alterada");
+			
+		resultado.setViewName("admin");
+		
+		return resultado;
+		
+	}
+	
+	
 }

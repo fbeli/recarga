@@ -22,10 +22,10 @@ public class ErroService {
 		Erro erro = null;
 		try{
 		erro = EntityFabric.createErro(codigo, mensagem);
-		
+	
 		hDaoErro.persistir(erro);
 		}catch(Exception e){
-			
+			e.printStackTrace();
 		}finally{
 			return erro;
 	

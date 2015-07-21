@@ -6,6 +6,7 @@ import org.apache.commons.codec.digest.DigestUtils;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -50,6 +51,20 @@ public class HBUsuario extends HBDAO<Usuario> {
 		return (Usuario) query.uniqueResult();
 	}
 	
+	public Usuario getUsuarioPorNome(String nome) throws ErroException {
+		Query query = getSession().createQuery("from Usuario usr where usr.nome = ?");
+		query.setString(0, nome);
+		return (Usuario) query.uniqueResult();
+	}
+	
+
+	public Usuario getUsuario(long id) throws ErroException {
+		Criteria criteria = getSession().createCriteria(Usuario.class);
+		criteria.add(Restrictions.eq("id",id));
+		return (Usuario)criteria.uniqueResult();
+		
+	}
+	
 	public Usuario salvarUsuario(Usuario user) throws ConfirmacaoDeTransacaoException, ErroException{
 		if(null != getUsuario(user.getLogin() ) )
 				persistir(user);
@@ -64,6 +79,13 @@ public class HBUsuario extends HBDAO<Usuario> {
 		return criteria.list();
 		
 	}
+	
+
+	public List<Usuario> getUsuariosAtivos() throws ErroException{
+		Criteria criteria = getSession().createCriteria(Usuario.class);
+		criteria.add(Restrictions.eq("ativo",true));
+		return criteria.list();
+		}
 	
 	
 }
