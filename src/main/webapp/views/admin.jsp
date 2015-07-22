@@ -10,7 +10,7 @@
 	href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
 <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
 <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
-
+	
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Página de administrador</title>
@@ -211,7 +211,7 @@ $("#btLogin").click( function(){
 		$("#tdMsg").html("Senhas Não conferem, favor, colocar senhas iguais")
 	}
 		
-}
+});
 
 $("#bt_altLogin").click( function(){
 	if($("#alt_Senha").val() == $("#alt_confSenha").val()){
@@ -221,7 +221,7 @@ $("#bt_altLogin").click( function(){
 		$("#tdMsg").html("Senhas Não conferem, favor, colocar senhas iguais")
 	}
 		
-}
+});
 
 
 

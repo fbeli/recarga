@@ -47,6 +47,9 @@
      <definition name="confirmacaoDeRecarga"  extends="clean_dsn" >
     	<put-attribute name="conteudo" value="/views/confirmacaoDeRecarga.jsp"/>
     </definition>
+     <definition name="confirmacaoDeRecargaRapida"  extends="clean_dsn" >
+    	<put-attribute name="conteudo" value="/views/confirmacaoDeRecargaRapida.jsp"/>
+    </definition>
       <definition name="confirmacaoDeRecarga_old"  extends="main" >
     	<put-attribute name="conteudo" value="/views/confirmacaoDeRecarga.jsp"/>
     </definition>
@@ -63,7 +66,9 @@
     <definition name="erroRecarga"  extends="main_dsn" >
     	<put-attribute name="conteudo" value="/views/erroRecarga.jsp"/>
     </definition>
-    
+     <definition name="erro"  extends="main_dsn" >
+    	<put-attribute name="conteudo" value="/views/erro.jsp"/>
+    </definition>
       <definition name="admin"  extends="adm" >
     	<put-attribute name="conteudo" value="/views/admin.jsp"/>
     </definition>
@@ -91,9 +96,7 @@
       <definition name="entrar"  extends="clean_dsn" >
     	<put-attribute name="conteudo" value="/views/login.jsp"/>
     </definition>
-     <definition name="erroRecarga"  extends="clean_dsn" >
-    	<put-attribute name="conteudo" value="/views/login.jsp"/>
-    </definition>
+     
 
 
 </tiles-definitions>

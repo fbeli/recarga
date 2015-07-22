@@ -18,8 +18,10 @@ import org.apache.http.message.BasicNameValuePair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Required;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.stereotype.Component;
 
 import br.com.becb.middlewarerecarga.dao.hibernate.HibernateErro;
@@ -34,7 +36,8 @@ import br.com.becb.middlewarerecarga.servicos.cliente.rv.RecargaParseXML;
 import br.com.becb.middlewarerecarga.suporte.Suporte;
 
 @Configuration
-@PropertySource("classpath:rv.properties")
+//@PropertySource("classpath:rv.properties")
+@PropertySource("file:${CATALINA_BASE}\\conf\\recarga.properties")
 @Component("consultaRV")
 public class ConsultaRV {
 
@@ -70,6 +73,16 @@ public class ConsultaRV {
 
 	@Autowired
 	private JDBCSuporteDao jdbcSuporteDao;
+	
+	
+	/**
+	 * Incluso para poder ler o arquivo de propriedades
+	 * @return
+	 */
+	@Bean
+    public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
+       return new PropertySourcesPlaceholderConfigurer();
+    }
 	
 	public ConsultaRV() {
 		

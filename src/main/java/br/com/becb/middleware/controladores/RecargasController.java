@@ -27,6 +27,7 @@ import br.com.becb.middlewarerecarga.exceptions.ImpossivelCarregarProdutosExcept
 import br.com.becb.middlewarerecarga.servicos.AutorizadorService;
 import br.com.becb.middlewarerecarga.servicos.ErroService;
 import br.com.becb.middlewarerecarga.servicos.ListaProdutosService;
+import br.com.becb.middlewarerecarga.servicos.Logar;
 import br.com.becb.middlewarerecarga.servicos.RecarregarService;
 import br.com.becb.middlewarerecarga.servicos.UserService;
 import br.com.becb.middlewarerecarga.suporte.PegaProperties;
@@ -73,7 +74,7 @@ public class RecargasController {
 			
 			if(recarga.getStatusRecarga()== StatusRecarga.EFETUADO && recarga.getStatusRecargaServer().equals(StatusRecargaServer.CONFIRMADO)){
 				
-				resultado.addObject("mensagem", "Regarga "+recarga.getCodOnline()+ " já efetuada, não é possível cancelar");
+				resultado.addObject("mensagem", "Regarga "+recarga.getCodOnline()+ " jï¿½ efetuada, nï¿½o ï¿½ possï¿½vel cancelar");
 				resultado.addObject("recarga", recarga);
 				resultado.setViewName("admin");
 			
@@ -84,7 +85,7 @@ public class RecargasController {
 				if(recarga.getStatusRecarga() == StatusRecarga.CANCELADO)
 					resultado.addObject("mensagem", "Recarga "+recarga.getCodOnline()+" cancelada com sucesso");
 				else
-					resultado.addObject("mensagem", "Não foi possível cancelar regarga "+recarga.getCodOnline() +" Erro ao tentar cancelar");
+					resultado.addObject("mensagem", "Nï¿½o foi possï¿½vel cancelar regarga "+recarga.getCodOnline() +" Erro ao tentar cancelar");
 					
 				resultado.addObject("recarga", recarga);
 		
@@ -93,10 +94,10 @@ public class RecargasController {
 		} catch (ErroException e) {
 			resultado.addObject("erro", e);
 			if(e.getErro() == null){
-				EntityFabric.createErro(CodErro.IMPOSSIVELCANCELAR, "Impossível cancelar recarga " +id);
+				EntityFabric.createErro(CodErro.IMPOSSIVELCANCELAR, "Impossï¿½vel cancelar recarga " +id);
 			}
 			resultado.addObject("recarga", recarga);
-			resultado.addObject("mensagem", "Não foi possível cancelar regarga "+recarga.getCodOnline() +" Erro ao tentar cancelar");
+			resultado.addObject("mensagem", "Nï¿½o foi possï¿½vel cancelar regarga "+recarga.getCodOnline() +" Erro ao tentar cancelar");
 			resultado.setViewName("erroRecarga");
 			e.printStackTrace();
 		} finally {
@@ -141,7 +142,7 @@ public class RecargasController {
 			if (null != recarga.getPin() && recarga.getPin() != "") {
 				resultado.setViewName("confirmacaoDeRecargaPIN");
 			} else
-				resultado.setViewName("confirmacaoDeRecarga");
+				resultado.setViewName("confirmacaoDeRecargaRapida");
 
 		} catch (ErroException e) {
 			resultado.addObject("erro", e);
@@ -213,13 +214,13 @@ public class RecargasController {
 			resultado.addObject("erro", e);
 			resultado.addObject("recarga", recarga);
 			resultado.setViewName("erroRecarga");
-			e.printStackTrace();
+			Logar.erro(" RecargaController -> "+ e.getMessage());
 
 		}
 
 		sessao.setAttribute("recarga", recarga);
 		resultado.addObject("recarga", recarga);
-		// Se logado vai direto pra página
+		// Se logado vai direto pra pï¿½gina
 
 		return resultado;
 	}
@@ -258,7 +259,7 @@ public class RecargasController {
 		if (produtos == null) {
 
 			Exception e = new ErroException( erroService.createErro("33",
-					"Impossível carregar produtos"));
+					"Impossï¿½vel carregar produtos"));
 			resultado.addObject("erro", e);
 			resultado.setViewName("erroRecarga");
 

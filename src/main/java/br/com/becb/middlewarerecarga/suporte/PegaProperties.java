@@ -8,13 +8,17 @@ import java.util.Properties;
 public class PegaProperties {
 
 	
+	private static Properties props;
+	
 	  @SuppressWarnings("finally")
 	public static Properties getProp()  {
-	        Properties props = new Properties();
+	        if(null != props)
+	        	return props;
+		  	props = new Properties();
 	        FileInputStream file;
 			try {
 				String dir = System.getenv("catalina_home");
-				file = new FileInputStream(dir+"/conf/recarga.properties");
+				file = new FileInputStream(dir+"\\conf\\recarga.properties");
 				props.load(file);
 				
 			} catch (FileNotFoundException e) {

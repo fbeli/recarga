@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import br.com.becb.middlewarerecarga.entidades.EntityFabric;
 import br.com.becb.middlewarerecarga.entidades.Recarga;
 import br.com.becb.middlewarerecarga.entidades.Transacoes;
 import br.com.becb.middlewarerecarga.entidades.Usuario;
+import br.com.becb.middlewarerecarga.entidades.enums.CodErro;
 import br.com.becb.middlewarerecarga.exceptions.ErroException;
 import br.com.becb.middlewarerecarga.servicos.RecarregarService;
 import br.com.becb.middlewarerecarga.servicos.TransacaoService;
@@ -86,12 +88,18 @@ public class TransacaoController {
 			resultado.addObject("recarga", recarga);
 			
 			resultado = Suporte.getInfosComprovante(resultado);
-		
-		if (null != recarga.getPin() && recarga.getPin() != "") {
-			resultado.setViewName("confirmacaoDeRecargaPIN");
-		} else
-			resultado.setViewName("confirmacaoDeRecarga");
-		
+		if(null == recarga){
+			
+			
+			resultado.addObject("erro", EntityFabric.createErro(CodErro.RECARGANAOENCONTRADA, "Recarga "+id+" não localizada.")	);
+			resultado.setViewName("erro");
+			
+		}else{
+			if (null != recarga.getPin() && recarga.getPin() != "") {
+				resultado.setViewName("confirmacaoDeRecargaPIN");
+			} else
+				resultado.setViewName("confirmacaoDeRecarga");
+			}
 		} catch (ErroException e) {
 			e.getErro().setMensagem("Erro ao listar recarga. \n"+e.getErro().getMensagem());
 			resultado.addObject("erro", e);

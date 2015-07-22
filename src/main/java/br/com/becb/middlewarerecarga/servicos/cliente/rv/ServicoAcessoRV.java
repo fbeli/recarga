@@ -8,8 +8,10 @@ import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.stereotype.Component;
 
 import br.com.becb.middlewarerecarga.entidades.rv.recarga.jax.CellCardRecarga;
@@ -18,7 +20,8 @@ import br.com.becb.middlewarerecarga.exceptions.ErroException;
 import br.com.becb.middlewarerecarga.servicos.ConsultaRV;
 
 @Configuration
-@PropertySource("classpath:rv.properties")
+//@PropertySource("classpath:rv.properties")
+@PropertySource("file:${CATALINA_BASE}\\conf\\recarga.properties")
 @Component("servicoAcessoRV")
 public class ServicoAcessoRV {
 	@Value("${url}")
@@ -45,9 +48,19 @@ public class ServicoAcessoRV {
 	
 	@Autowired
 	ConsultaRV consultaRV;
+	
 	@Autowired
 	ParseRecarga parseRecarga;
 	
+	/**
+	 * Incluso para poder ler o arquivo de propriedades
+	 * @return
+	 */
+	@Bean
+    public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
+       return new PropertySourcesPlaceholderConfigurer();
+    }
+
 	public ServicoAcessoRV() {
 		// TODO Auto-generated constructor stub
 	}
@@ -55,7 +68,7 @@ public class ServicoAcessoRV {
 	/**
 	 * 
 	 * @param idRecarga Id da recarga a ser confirmada ou cancelada
-	 * @param codRetorno 0 confirma transação  | 1 Cancela transação
+	 * @param codRetorno 0 confirma transaï¿½ï¿½o  | 1 Cancela transaï¿½ï¿½o
 	 * @return
 	 * @throws ErroException 
 	 */
@@ -88,10 +101,10 @@ public class ServicoAcessoRV {
 	
 	/**
 	 * 
-	 * @param idProduto Código do produto a ser utilizado
+	 * @param idProduto Cï¿½digo do produto a ser utilizado
 	 * @param ddd ddd do telefone a ser recarregado
-	 * @param fone número do telefone a ser recarregado
-	 * @param usuarioLocal usuário que está operando a máquina, ou null
+	 * @param fone nï¿½mero do telefone a ser recarregado
+	 * @param usuarioLocal usuï¿½rio que estï¿½ operando a mï¿½quina, ou null
 	 * @param id_terminal id do terminal, se existir
 	 * @throws ErroException 
 	 */
@@ -131,11 +144,11 @@ public class ServicoAcessoRV {
 	
 	/**
 	 * 
-	 * @param codProduto Máximo 9 posições.produto String Código do produto solicitado, de acordo com os valores retornados na transação 1
+	 * @param codProduto Mï¿½ximo 9 posiï¿½ï¿½es.produto String Cï¿½digo do produto solicitado, de acordo com os valores retornados na transaï¿½ï¿½o 1
 	 * @param uf
 	 * @param usuarioLocal
 	 * @param id_terminal
-	 * @param idRecarga Código da Compra no sistema do cliente. Deve ser um sequencial único para cada transação (chave primária do cliente - não pode se repetir). Máximo 9 posições.
+	 * @param idRecarga Cï¿½digo da Compra no sistema do cliente. Deve ser um sequencial ï¿½nico para cada transaï¿½ï¿½o (chave primï¿½ria do cliente - nï¿½o pode se repetir). Mï¿½ximo 9 posiï¿½ï¿½es.
 	 * @return
 	 * @throws ErroException 
 	 */

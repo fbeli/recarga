@@ -8,18 +8,15 @@
 </div>
 <div id="erro">
 	<h3 id="erro" style="visibility: visible;">
-	<c:if test="${ recarga != null && recarga.ddd != null}">
-		Recarga telefone ( ${recarga.ddd} ) ${recarga.fone}	<br>
-		valor: <fmt:formatNumber value="${recarga.valor}" type="currency"/>
-		<br>
-		${recarga.statusRecarga}
-	</c:if>
+	
 		<br><br>
 		
 		
 		
-		Mensagem:	${erro.erro.mensagem }
+		Mensagem:	${erro.mensagem }
 	</h3>
+	<br>
+	<img src="<%=request.getContextPath()%>/recursos/img/backWindow.png" onClick="window.location.href = '<%=request.getContextPath()%>'; " style="cursor:pointer;"/>
 </div>
 </div>
 
