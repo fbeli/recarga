@@ -36,7 +36,6 @@ import br.com.becb.middlewarerecarga.servicos.cliente.rv.RecargaParseXML;
 import br.com.becb.middlewarerecarga.suporte.Suporte;
 
 @Configuration
-//@PropertySource("classpath:rv.properties")
 @PropertySource("file:${CATALINA_BASE}\\conf\\recarga.properties")
 @Component("consultaRV")
 public class ConsultaRV {
@@ -152,18 +151,7 @@ public class ConsultaRV {
 
 	}
 
-	private void imprimeParams(List<NameValuePair> params) {
-
-		System.out.println("*********************************");
-		for (int i = 0; i < params.size(); i++) {
-
-			System.out.println(params.get(i).getName() + " - "
-					+ params.get(i).getValue());
-
-		}
-
-	}
-
+	
 	private String fazerConsulta(String codigoTransacao) throws ErroException {
 		HttpClient httpclient = HttpClients.createDefault();
 		carregarParametros();
