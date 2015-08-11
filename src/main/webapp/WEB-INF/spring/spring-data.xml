@@ -37,6 +37,7 @@
 				<prop key="c3p0.acquire_increment">5</prop>
 				<prop key="c3p0.acquire_rentry_attemps">5</prop>
 				<prop key="c3p0.max_statements">50</prop>
+				<prop key="c3p0.testConnectionOnCheckout">true</prop>
 				<prop key="hibernate.c3p0.idle_test_period">100</prop>
 				<prop key="c3p0.preferredTestQuery">SELECT 1;</prop>
 				<prop key="hibernate.c3p0.testConnectionOnCheckout">true</prop>
