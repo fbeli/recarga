@@ -16,8 +16,9 @@
 	<context:component-scan base-package="br.com.becb.middlewarerecarga.servicos" />
 	<context:component-scan base-package="br.com.becb.middlewarerecarga.*" />
 	<context:component-scan base-package="br.com.becb.middlewarerecarga.dao.hibernate" />
-<context:component-scan base-package="br.com.middlewarerecarga.tests.produtos.*" />
-<context:property-placeholder location="classpath:rv.properties"/>
+	<context:component-scan base-package="br.com.middlewarerecarga.tests.produtos.*" />
+		<context:component-scan base-package="br.com.becb.moip.*" />
+	<context:property-placeholder location="classpath:rv.properties"/>
 
 	<bean id="consultaRV"
 		class="br.com.becb.middlewarerecarga.servicos.ConsultaRV" />

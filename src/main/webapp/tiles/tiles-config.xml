@@ -96,6 +96,10 @@
       <definition name="entrar"  extends="clean_dsn" >
     	<put-attribute name="conteudo" value="/views/login.jsp"/>
     </definition>
+    
+      <definition name="pagamento_moip"  extends="main_dsn" >
+    	<put-attribute name="conteudo" value="/views/moip/pagamento_moip.jsp"/>
+    </definition>
      
 
 
