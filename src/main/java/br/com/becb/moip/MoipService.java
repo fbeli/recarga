@@ -67,10 +67,10 @@ public class MoipService {
 												.withZipCode("01230-000")
 												.withPhone("(11)8888-8888"))));
 		enviarInstrucao.validate();
-		try {
+		
 			
 			SandboxMoip sm =  new SandboxMoip();
-			
+		try {	
 			SendSingleInstructionResponse response = sm
 					.withToken(token).withKey(key).send(enviarInstrucao);
 
@@ -90,6 +90,8 @@ public class MoipService {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+		}catch(Throwable t){
+			t.printStackTrace();
 		}finally{
 			return resposta;
 		}
