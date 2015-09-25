@@ -28,6 +28,7 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry combineaccessrules="false" kind="src" path="/jmoip"/>
+	<classpathentry kind="lib" path="C:/Users/fred/.m2/repository/commons-httpclient/commons-httpclient/3.1/commons-httpclient-3.1.jar"/>
+	<classpathentry kind="lib" path="libs/jmoip.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
