@@ -3,6 +3,8 @@ package br.com.becb.moip;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 import br.com.moip.client.instruction.Address;
@@ -13,8 +15,8 @@ import br.com.moip.client.instruction.Values;
 import br.com.moip.client.response.SendSingleInstructionResponse;
 import br.com.moip.client.send.SandboxMoip;
 
-//@Configuration
-//@PropertySource("file:${CATALINA_BASE}\\conf\\recarga.properties")
+@Configuration
+@PropertySource("file:${CATALINA_BASE}\\conf\\recarga.properties")
 @Component("moipService")
 public class MoipService {
 
@@ -87,7 +89,7 @@ public class MoipService {
 			
 			resposta = new MoipServiceResponse(successful, token, errors);
 			
-			
+			    
 		} catch (Exception e) {
 			e.printStackTrace();
 		}catch(Throwable t){
