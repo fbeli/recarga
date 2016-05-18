@@ -1,6 +1,0 @@
-MLog clients using log4j logging.
-Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
-HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
-HHH000412: Hibernate Core {4.1.7.Final}
-HHH000206: hibernate.properties not found
-HHH000021: Bytecode provider name : javassist

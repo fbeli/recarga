@@ -28,6 +28,6 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry combineaccessrules="false" kind="src" path="/jmoip"/>
+	<classpathentry kind="lib" path="libs/jmoip.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

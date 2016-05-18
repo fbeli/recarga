@@ -1,8 +1,11 @@
 package br.com.middlewarerecarga.tests.produtos;
 
-import java.text.ParseException;
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import org.junit.Test;
+
 
 public class AjustaParametros {
 
@@ -17,6 +20,12 @@ public class AjustaParametros {
 
         return "9"+date;
 		
+       
 	}
+	 @Test
+     public void testeContexto(){
+     	File file = new File("coringa");
+     	System.out.println(file.getAbsolutePath());
+     }
 
 }

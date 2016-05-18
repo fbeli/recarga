@@ -90,5 +90,8 @@ public class UserService {
 		return  hDaoUsuario.getUsuario(username, senha); 
 	}
 	
+	public Usuario getUsuario(String username) throws ErroException{
+		return  hDaoUsuario.getUsuario(username); 
+	}
 
 }
