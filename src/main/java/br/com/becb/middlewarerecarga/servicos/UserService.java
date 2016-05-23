@@ -94,4 +94,12 @@ public class UserService {
 		return  hDaoUsuario.getUsuario(username); 
 	}
 
+	public void sethDaoUsuario(HBUsuario hDaoUsuario) {
+		this.hDaoUsuario = hDaoUsuario;
+	}
+
+	public void sethDaoPermissaoUsuario(HBPermissaoUsuario<PermissaoUsuario> hDaoPermissaoUsuario) {
+		this.hDaoPermissaoUsuario = hDaoPermissaoUsuario;
+	}
+
 }
