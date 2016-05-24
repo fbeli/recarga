@@ -39,7 +39,7 @@ public class UsuarioTest {
 		EasyMock.expect(hDaoUsuario.getUsuario("fred")).andReturn(new Usuario("fbeli","pass","frederico"));
 		EasyMock.replay(hDaoUsuario);
 		us.sethDaoUsuario(hDaoUsuario);
-		Usuario usuario = us.getUsuario("fred");
+		Usuario usuario = us.getUsuarioByLogin("fred");
 		Assert.assertEquals(usuario.getNome(), "frederico");
 		
 		

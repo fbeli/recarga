@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Component;
 
 import br.com.becb.middlewarerecarga.dao.hibernate.HBPermissaoUsuario;
@@ -13,6 +14,7 @@ import br.com.becb.middlewarerecarga.entidades.PermissaoUsuario;
 import br.com.becb.middlewarerecarga.entidades.Usuario;
 import br.com.becb.middlewarerecarga.exceptions.ConfirmacaoDeTransacaoException;
 import br.com.becb.middlewarerecarga.exceptions.ErroException;
+import br.com.becb.middlewarerecarga.suporte.ServicoAcessorio;
 
 
 
@@ -43,6 +45,13 @@ public class UserService {
 		user.setAtivo(false);		
 		this.atualizaUser(user);		
 		return !user.isAtivo();
+	}
+	
+	public boolean liberarUsuario(Usuario user) throws Exception{
+		
+		user.setAtivo(true);		
+		this.atualizaUser(user);		
+		return user.isAtivo();
 	}
 	
 	public boolean bloquearUsuario(long id) throws ErroException, Exception{
@@ -83,17 +92,37 @@ public class UserService {
 		return user;
 	}
 	
-	public Usuario getUsuario(long id) throws ErroException{
+	public Usuario getUsuarioById(long id) throws ErroException{
 		return hDaoUsuario.getUsuario(id);
 	}
 	public Usuario getUsuario(String username, String senha) throws ErroException{
 		return  hDaoUsuario.getUsuario(username, senha); 
 	}
 	
-	public Usuario getUsuario(String username) throws ErroException{
+	public Usuario getUsuarioByLogin(String username) throws ErroException{
 		return  hDaoUsuario.getUsuario(username); 
 	}
 
+	/**
+	 * 
+	 * @param username
+	 * @param senha
+	 * @return se alteração ok, retorna true;
+	 * @throws ErroException 
+	 */
+	
+	public boolean alteraSenha(String username, String senha) throws ErroException{
+		
+		Usuario user =  this.getUsuarioByLogin(username);
+		user.setSenha(senha);
+		this.atualizaUser(user);
+		
+		if(user.getSenha().equals(ServicoAcessorio.getMd5(senha)))
+			return true;		
+		return false;		
+				
+	}
+	
 	public void sethDaoUsuario(HBUsuario hDaoUsuario) {
 		this.hDaoUsuario = hDaoUsuario;
 	}

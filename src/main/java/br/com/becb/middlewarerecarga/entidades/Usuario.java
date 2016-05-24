@@ -14,6 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.sql.rowset.serial.SerialArray;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -23,6 +24,7 @@ import org.hibernate.annotations.IndexColumn;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import br.com.becb.middlewarerecarga.entidades.autorizacao.Autorizador;
+import br.com.becb.middlewarerecarga.suporte.ServicoAcessorio;
 
 @Entity
 @Table(name = "usuario")
@@ -112,12 +114,12 @@ public class Usuario implements java.io.Serializable {
 	}
 
 	public String getSenha() {
-		return senha;
+		return getHashSenha();
 	}
 
 	public void setSenha(String senha) {
-		setHashSenha(org.apache.commons.codec.digest.DigestUtils
-				.sha256Hex(senha));
+		setHashSenha(ServicoAcessorio.getMd5(senha));
+		
 		this.senha = senha;
 	}
 

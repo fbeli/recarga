@@ -97,7 +97,7 @@ public class UserControler {
 
 		ModelAndView resultado = new ModelAndView();
 
-		Usuario user = userService.getUsuario(Long.parseLong(id));
+		Usuario user = userService.getUsuarioById(Long.parseLong(id));
 		user.setSenha(senha);
 		userService.atualizaUser(user);
 		resultado.addObject("mensagem", "usuário '"+user.getNome()+"' com senha alterada");
