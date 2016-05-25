@@ -44,3 +44,5 @@ Temporary Items
 /target/
 /src/
 /operadoras.txt
+
+*.class
