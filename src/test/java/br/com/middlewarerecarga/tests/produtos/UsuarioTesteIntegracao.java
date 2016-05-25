@@ -2,6 +2,8 @@ package br.com.middlewarerecarga.tests.produtos;
 
 import java.util.List;
 
+import javax.validation.constraints.AssertFalse;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import br.com.becb.middlewarerecarga.entidades.Role;
 import br.com.becb.middlewarerecarga.entidades.Usuario;
 import br.com.becb.middlewarerecarga.exceptions.ErroException;
 import br.com.becb.middlewarerecarga.servicos.UserService;
@@ -30,6 +33,7 @@ public class UsuarioTesteIntegracao {
 	String senhaHash;
 	String senha;
 	Usuario user;
+	String loginTemp = "usuarioTemp";
 	
 	
 	@Before
@@ -106,5 +110,36 @@ public class UsuarioTesteIntegracao {
 	
 	}
 	
+	/**
+	 * Somente rodará se usuário for apagado.
+	 * @throws ErroException 
+	 */
+	@Test
+	public void incluirUsuario() throws ErroException{
+		
+		Usuario user = getUsuario();
+		if(null == us.getUsuarioByLogin(user.getLogin())){
+			us.novoUsuario(user, Role.ROLE_ADMIN.toString());
+			System.out.println(user.getId());
+			Assert.assertNotNull(user.getId());
+		}
+	}
+	
+	@Test()
+	public void ApagarUsuario() throws ErroException{
+		if(null!= us.getUsuarioByLogin(this.loginTemp)){			
+			Assert.assertTrue( us.apagarUsuario(this.loginTemp));
+		}
+	}
+	
+	@Test()
+	public void ApagarUsuarioFalse() throws ErroException{
+		Assert.assertFalse(us.apagarUsuario("xuxu"));
+		;
+	}
+	
+	private Usuario getUsuario(){
+		return new Usuario(this.loginTemp, this.loginTemp, this.loginTemp);
+	}
 	
 }

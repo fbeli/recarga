@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import br.com.becb.middlewarerecarga.entidades.PermissaoUsuario;
+import br.com.becb.middlewarerecarga.entidades.Role;
 import br.com.becb.middlewarerecarga.entidades.Usuario;
 import br.com.becb.middlewarerecarga.exceptions.ErroException;
 
@@ -36,6 +37,7 @@ public class HBPermissaoUsuario<T>  extends HBDAO<PermissaoUsuario> {
 	 */
 	public void addRole(String role, Usuario usuario) throws ErroException {
 	
+	
 		switch (role) {
 		
 		case "ROLE_ADMIN":
@@ -55,7 +57,8 @@ public class HBPermissaoUsuario<T>  extends HBDAO<PermissaoUsuario> {
 		
 		
 	}
-
+	
+	
 	private void persistir(String role, Usuario usuario) throws ErroException{
 		if (role != null && usuario != null) {
 			PermissaoUsuario permissao = new PermissaoUsuario();

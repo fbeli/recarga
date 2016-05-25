@@ -5,12 +5,12 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Component;
 
 import br.com.becb.middlewarerecarga.dao.hibernate.HBPermissaoUsuario;
 import br.com.becb.middlewarerecarga.dao.hibernate.HBUsuario;
 import br.com.becb.middlewarerecarga.entidades.PermissaoUsuario;
+import br.com.becb.middlewarerecarga.entidades.Role;
 import br.com.becb.middlewarerecarga.entidades.Usuario;
 import br.com.becb.middlewarerecarga.exceptions.ConfirmacaoDeTransacaoException;
 import br.com.becb.middlewarerecarga.exceptions.ErroException;
@@ -30,6 +30,15 @@ public class UserService {
 	public UserService() {
 	}
 	
+	/**
+	 * 
+	 * @param username
+	 * @param password
+	 * @param nome
+	 * @param role
+	 * @return
+	 * @throws ErroException
+	 */
 	public Usuario novoUsuario(String username, String password, String nome, String role) throws ErroException{
 		Usuario user = new Usuario(username, password, nome);
 		user.setAtivo(true);
@@ -38,6 +47,13 @@ public class UserService {
 		
 		user = hDaoUsuario.getUsuario(username);
 		return user;
+	}
+	public Usuario novoUsuario(Usuario user, String role) throws ErroException{
+		hDaoUsuario.persistir(user);
+		hDaoPermissaoUsuario.addRole(role, user);
+		
+		return user;
+		
 	}
 	
 	public boolean bloquearUsuario(Usuario user) throws Exception{
@@ -129,6 +145,25 @@ public class UserService {
 
 	public void sethDaoPermissaoUsuario(HBPermissaoUsuario<PermissaoUsuario> hDaoPermissaoUsuario) {
 		this.hDaoPermissaoUsuario = hDaoPermissaoUsuario;
+	}
+	
+	/**
+	 * Nunca usa-lo
+	 * @param login
+	 * @throws ErroException 
+	 */
+	public boolean apagarUsuario(String login) throws ErroException{
+		Usuario usuario = hDaoUsuario.getUsuario(login);
+		if(null==usuario)
+			return false;
+		
+		hDaoUsuario.excluir(usuario);
+		usuario = hDaoUsuario.getUsuario(login);
+		if(null == usuario){
+			return true;
+		}else
+			return false;
+		
 	}
 
 }
