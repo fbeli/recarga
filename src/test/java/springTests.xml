@@ -16,7 +16,10 @@
 	<context:component-scan base-package="br.com.becb.middlewarerecarga.servicos" />
 	<context:component-scan base-package="br.com.becb.middlewarerecarga.*" />
 	<context:component-scan base-package="br.com.becb.middlewarerecarga.dao.hibernate" />
-		<context:component-scan base-package="br.com.becb.middlewarerecarga.dao.hibernate.*" />
+	<context:component-scan base-package="br.com.becb.middlewarerecarga.dao.hibernate.*" />
+	<context:component-scan base-package="br.com.becb.pagamento.moip.*" />
+
+
 
 <context:property-placeholder location="classpath:rv.properties"/>
 

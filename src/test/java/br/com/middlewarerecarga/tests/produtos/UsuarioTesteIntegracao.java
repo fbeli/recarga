@@ -98,7 +98,7 @@ public class UsuarioTesteIntegracao {
 	public void alterarSenha() throws ErroException{
 		
 		String senha = "senhaNova";
-		String username = "mauricio";
+		String username = "frederico";
 		
 		us.alteraSenha(username, senha);
 		

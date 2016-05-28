@@ -105,4 +105,18 @@ public class HomeController {
 		return resultado;
 
 	}
+	
+
+	@RequestMapping("/moip/test")
+	public ModelAndView atualizarProdutos() {
+		
+		ModelAndView resultado = new ModelAndView();
+		//MoipServiceResponse mr = ms.sendXML();
+		
+		resultado.setViewName("pagamento_moip");
+	//	resultado.addObject("mr", mr);
+		
+		return resultado;
+	}
+
 }
