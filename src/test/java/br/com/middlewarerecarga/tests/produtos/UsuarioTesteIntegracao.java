@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import br.com.becb.middlewarerecarga.entidades.Role;
+//import br.com.becb.middlewarerecarga.entidades.Role;
 import br.com.becb.middlewarerecarga.entidades.Usuario;
 import br.com.becb.middlewarerecarga.exceptions.ErroException;
 import br.com.becb.middlewarerecarga.servicos.UserService;
@@ -119,7 +119,7 @@ public class UsuarioTesteIntegracao {
 		
 		Usuario user = getUsuario();
 		if(null == us.getUsuarioByLogin(user.getLogin())){
-			us.novoUsuario(user, Role.ROLE_ADMIN.toString());
+	//	TODO	us.novoUsuario(user, Role.ROLE_ADMIN.toString());
 			System.out.println(user.getId());
 			Assert.assertNotNull(user.getId());
 		}

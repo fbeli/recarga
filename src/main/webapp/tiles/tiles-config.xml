@@ -97,6 +97,9 @@
     	<put-attribute name="conteudo" value="/views/login.jsp"/>
     </definition>
      
+      <definition name="testAjax"  extends="main" >
+    	<put-attribute name="conteudo" value="/views/testes/ajaxTeste.jsp"/>
+    </definition>
 
 
 </tiles-definitions>

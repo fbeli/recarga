@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import br.com.becb.middlewarerecarga.entidades.PermissaoUsuario;
-import br.com.becb.middlewarerecarga.entidades.Role;
+
 import br.com.becb.middlewarerecarga.entidades.Usuario;
 import br.com.becb.middlewarerecarga.exceptions.ErroException;
 

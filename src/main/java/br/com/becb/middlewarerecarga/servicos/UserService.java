@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 import br.com.becb.middlewarerecarga.dao.hibernate.HBPermissaoUsuario;
 import br.com.becb.middlewarerecarga.dao.hibernate.HBUsuario;
 import br.com.becb.middlewarerecarga.entidades.PermissaoUsuario;
-import br.com.becb.middlewarerecarga.entidades.Role;
+//import br.com.becb.middlewarerecarga.entidades.Role;
 import br.com.becb.middlewarerecarga.entidades.Usuario;
 import br.com.becb.middlewarerecarga.exceptions.ConfirmacaoDeTransacaoException;
 import br.com.becb.middlewarerecarga.exceptions.ErroException;

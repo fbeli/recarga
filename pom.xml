@@ -284,6 +284,15 @@
 	<artifactId>quartz</artifactId>
 	<version>1.8.5</version>
 	
+
+
+	
+</dependency>
+		<!-- Utilização de Jason https://mvnrepository.com/artifact/org.codehaus.jackson/jackson-jaxrs -->
+<dependency>
+    <groupId>org.codehaus.jackson</groupId>
+    <artifactId>jackson-jaxrs</artifactId>
+    <version>1.5.3</version>
 </dependency>
 		
 	</dependencies>
